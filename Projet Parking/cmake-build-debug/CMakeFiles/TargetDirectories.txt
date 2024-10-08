@@ -1,3 +1,0 @@
-C:/Users/hp/OneDrive/Bureau/Projet Parking/cmake-build-debug/CMakeFiles/Projet_Parking.dir
-C:/Users/hp/OneDrive/Bureau/Projet Parking/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/hp/OneDrive/Bureau/Projet Parking/cmake-build-debug/CMakeFiles/rebuild_cache.dir
