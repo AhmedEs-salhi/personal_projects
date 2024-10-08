@@ -50,5 +50,6 @@ void statVehicule(parking*);
 int montantPayer(vehicule);
 void quiterParking(parking*);
 int chercher(int);
+void afficherSeulVehicule(vehicule *veh);
 
 #endif
