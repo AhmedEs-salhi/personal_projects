@@ -44,12 +44,12 @@ struct Parking
 void saisieVehicule(parking*);
 parking* initNode();
 void affichageParkingVehicules(parking);
-void formaterHeure(int, int);
+void formaterHeure(int);
 int estPlaine(parking*);
 void statVehicule(parking*);
 int montantPayer(vehicule);
 void quiterParking(parking*);
-int chercher(int);
+vehicule* chercher(vehicule*, int);
 void afficherSeulVehicule(vehicule *veh);
 
 #endif

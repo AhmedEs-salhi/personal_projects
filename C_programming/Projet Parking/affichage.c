@@ -3,7 +3,7 @@
 void affichageParkingVehicules(parking list)
 {
     vehicule *veh;
-    int montant, i;
+    int i;
     veh = list.premierVeh;
 
     i = 0;
@@ -11,23 +11,15 @@ void affichageParkingVehicules(parking list)
     {
         printf("\nVehicule numero %d\n", i + 1);
         printf("-------------------\n");
-        if(veh->veType == 0)
-            printf("Type de vehicule: Voiture\n");
-        else if(veh->veType == 1)
-            printf("Type de vehicule: Camion\n");
-        printf("Numero d'immatriculation: %s\n", veh->numMat);
-        printf("Nombre du place dans le parking: %.2d\n", veh->numPlace);
-        printf("Temps du stationnement: ");
-        formaterHeure(veh->hrMin.hrs, veh->hrMin.minutes);
-        montant = montantPayer(*veh);
-        printf("Montant a payer: %.2d Dhs\n", montant);
+        afficherSeulVehicule(veh);
         veh = veh->suivant;
         i++;
     }
 }
 
-void formaterHeure(int h, int minutes)
+void formaterHeure(int minutes)
 {
+    int h = 0;
     while(minutes >= 60)
     {
         h++;
