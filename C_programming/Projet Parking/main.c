@@ -6,7 +6,7 @@ int main()
     vehicule* veh = par->premierVeh, *tmp;
     vehicule *vehAChercher;
 
-    int choix, numPlaceSaisie;
+    int choix, numPlaceSaisie, numPlaceVehSupp;
 
     do {
         /**
@@ -50,32 +50,52 @@ int main()
             if (par->premierVeh == NULL)
             {
                 printf("\n------------------VIDE---------------------\n");
-                printf("Le parking est deja vide\n");                
+                printf("Le parking est deja vide\n");
+                continue;              
             }
-            else
-                quiterParking(par);
+            printf("Quelle le numero de parking de la voiture que vous pouvez supprimer: ");
+            scanf("%d", &numPlaceVehSupp);
+            vehAChercher = chercher(par->premierVeh, numPlaceVehSupp);
+
+            if(vehAChercher)
+            {
+                if(vehAChercher->numPlace == par->premierVeh->numPlace)
+                    quiterHeadParking(par, vehAChercher);
+                else
+                    quiterHeadTailParking(par, vehAChercher);
+            }
+            else if(!vehAChercher) 
+            {
+                printf("\n------------------N'EXIST PAS---------------------\n");
+                printf("votre vehicule n'existe pas dans le parking\n");                    
+            }
         }
 
         if (choix == 3)
-        {
+        {     
+            if (par->premierVeh == NULL)
+            {
+                printf("\n------------------VIDE---------------------\n");
+                printf("Le parking est deja vide\n"); 
+                continue;               
+            }
             printf("\n------------------SAISIE---------------------\n");
             printf("Entrer le nombre de place de votre vehicule: ");
             scanf("%d", &numPlaceSaisie);
+            vehAChercher = chercher(par->premierVeh, numPlaceSaisie);
             if (numPlaceSaisie > PARK_MAX)
             {
                 printf("\n------------------ERREUR---------------------\n");
                 printf("Tu depasser la taille maximale du parking\n\n"); 
-                continue;
             }
-            vehAChercher = chercher(par->premierVeh, numPlaceSaisie);
-            if (vehAChercher)
+            else if (vehAChercher)
             {
                 printf("\n------------------EXIST---------------------\n");
                 printf("Votre vehicule exist dans le parking\n");
                 printf("\n------------------VEHICULE INFOS---------------------\n");
                 afficherSeulVehicule(vehAChercher);
             }
-            else if(!vehAChercher)
+            else
             {
                 printf("\n------------------N'EXIST PAS---------------------\n");
                 printf("votre vehicule n'existe pas dans le parking\n");

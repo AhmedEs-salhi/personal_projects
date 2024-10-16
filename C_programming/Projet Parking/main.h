@@ -48,8 +48,9 @@ void formaterHeure(int);
 int estPlaine(parking*);
 void statVehicule(parking*);
 int montantPayer(vehicule);
-void quiterParking(parking*);
 vehicule* chercher(vehicule*, int);
-void afficherSeulVehicule(vehicule *veh);
+void quiterHeadParking(parking*, vehicule*);
+void afficherSeulVehicule(vehicule *);
+void quiterHeadTailParking(parking *, vehicule*);
 
 #endif
