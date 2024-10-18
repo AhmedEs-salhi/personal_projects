@@ -8,24 +8,13 @@ int main()
 
     int choix, numPlaceSaisie, numPlaceVehSupp;
 
-    do {
-        /**
-         * work to do the next time you implement on this project:
-         * 
-         * >> YOU MUST WORK ON THE SEARCH FUNCTION THAT WILL SHOW
-         * YOU WETHER THE VEHICULE EXISTS OR NOT AND SHOW ITS
-         * INFOS IF IT EXISTED
-         */
-        
-
+    do 
+    {
         printf("\n------------------MENU---------------------\n");
         printf("Entrer votre choix: \n");
         printf(" 0 - Afficher le contenue du parking.\n");
         printf(" 1 - Ajouter une vehicule.\n");
         printf(" 2 - Suprimmer une vehicule.\n");
-        /**
-         * -> 3rd choice working just fine
-         * **/
         printf(" 3 - Chercher une vehicule.\n");
         printf("-1 - Exit.\n");
         printf("Votre choix: ");
@@ -56,7 +45,11 @@ int main()
             printf("Quelle le numero de parking de la voiture que vous pouvez supprimer: ");
             scanf("%d", &numPlaceVehSupp);
             vehAChercher = chercher(par->premierVeh, numPlaceVehSupp);
-
+            if (numPlaceVehSupp > PARK_MAX)
+            {
+                printf("\n------------------ERREUR---------------------\n");
+                printf("Tu depasser la taille maximale du parking\n\n"); 
+            }            
             if(vehAChercher)
             {
                 if(vehAChercher->numPlace == par->premierVeh->numPlace)
@@ -101,8 +94,6 @@ int main()
                 printf("votre vehicule n'existe pas dans le parking\n");
             }
         }
-
-        /*Ending the tests shit*/
 
         else if((choix != 0) && (choix != 1) && (choix != 2) && (choix != 3) && (choix != -1))
         {
